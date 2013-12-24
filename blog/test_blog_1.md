@@ -1,6 +1,6 @@
 ---
 layout: default
-title: 我的Blog_0
+title: 我的Blog_1
 ---
 <h2>{{ page.title }}</h2>
 <p>最新文章</p>
