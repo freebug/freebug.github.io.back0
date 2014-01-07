@@ -1,14 +1,14 @@
-hg8120cĞŞ¸ÄuseradminÈ¨ÏŞ
-Filed under: ¼ÆËã»úÓë Internet ¡ª ·¢±íÆÀÂÛ 11ÔÂ 8, 2013
+hg8120cä¿®æ”¹useradminæƒé™
+Filed under: è®¡ç®—æœºä¸ Internet â€” å‘è¡¨è¯„è®º 11æœˆ 8, 2013
 login hg8120c
 root@computer0OfGod:~# telnet 192.168.1.1
-Trying 192.168.1.1¡­
+Trying 192.168.1.1â€¦
 Connected to 192.168.1.1.
-Escape character is ¡®^]¡¯.Welcome Visiting Huawei Home Gateway
+Escape character is â€˜^]â€™.Welcome Visiting Huawei Home Gateway
 Copyright by Huawei Technologies Co., Ltd.Login:root
 Password:*****
 Password is default value, please modify it!
-modify default root password(password¸Ä¶¯¿ÉÄÜÒıÆğ²¦ºÅÎÊÌâ£©
+modify default root password(passwordæ”¹åŠ¨å¯èƒ½å¼•èµ·æ‹¨å·é—®é¢˜ï¼‰
 WAP>set userpasswd root
 old password:*******
 new password:********
@@ -16,7 +16,7 @@ reenter new password:********
 Password of root has been modified successful!success!
 change shell to linux sh
 WAP>shellBusyBox v1.18.4 (2013-02-01 22:12:01 CST) built-in shell (ash)
-Enter ¡®help¡¯ for a list of built-in commands.profile close core dump, flag=
+Enter â€˜helpâ€™ for a list of built-in commands.profile close core dump, flag=
 WAP(Dopra Linux) # echo $SHELL
 /bin/sh
 run below commands
@@ -33,9 +33,9 @@ WAP(Dopra Linux) # ls -lrt hw_ctree.xml
 -rw-rw-rw- 1 root root 133006 Jan 23 01:52 hw_ctree.xml
 Its size is changed to 133006, and is now a normal xml file.
 vi it, search useradmin, change UserLevel to 0, make sure it has identical keys and values as telecomadmin.
-gzip /tmp/hw_ctree.xml, run ¡° aescrypt2 0¡å to encrypt it, move it to /mnt/jffs2/hw_ctree.xml, and reboot
+gzip /tmp/hw_ctree.xml, run â€œ aescrypt2 0â€³ to encrypt it, move it to /mnt/jffs2/hw_ctree.xml, and reboot
 The above steps make useradmin has same privilege as telecomadmin.
 ref:
 http://www.chinadsl.net/forum.php?mod=viewthread&tid=98172&extra=&page=1
-ĞŞ¸Ä¶à²¦ÏŞÖÆ
-<X_HW_AccessLimit Mode=¡±GlobalLimit¡± TotalTerminalNumber=¡±4¡å/>
+ä¿®æ”¹å¤šæ‹¨é™åˆ¶
+<X_HW_AccessLimit Mode=â€GlobalLimitâ€ TotalTerminalNumber=â€4â€³/>
