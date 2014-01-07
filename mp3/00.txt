@@ -1,0 +1,41 @@
+hg8120c修改useradmin权限
+Filed under: 计算机与 Internet — 发表评论 11月 8, 2013
+login hg8120c
+root@computer0OfGod:~# telnet 192.168.1.1
+Trying 192.168.1.1…
+Connected to 192.168.1.1.
+Escape character is ‘^]’.Welcome Visiting Huawei Home Gateway
+Copyright by Huawei Technologies Co., Ltd.Login:root
+Password:*****
+Password is default value, please modify it!
+modify default root password(password改动可能引起拨号问题）
+WAP>set userpasswd root
+old password:*******
+new password:********
+reenter new password:********
+Password of root has been modified successful!success!
+change shell to linux sh
+WAP>shellBusyBox v1.18.4 (2013-02-01 22:12:01 CST) built-in shell (ash)
+Enter ‘help’ for a list of built-in commands.profile close core dump, flag=
+WAP(Dopra Linux) # echo $SHELL
+/bin/sh
+run below commands
+WAP(Dopra Linux) # cd /mnt/jffs2/
+WAP(Dopra Linux) # cp hw_ctree.xml /tmp
+WAP(Dopra Linux) # ls -lrt
+-rw-rw-rw- 1 root root 18504 Jan 23 01:58 hw_ctree.xml
+now hw_ctree.xml is an encrypted file, so u can not view it by a normal text file editor like vi. So
+WAP(Dopra Linux) # aescrypt2 1 hw_ctree.xml hw_ctree_tmp.xmlWAP(Dopra Linux) # ls -lrt
+-rw-rw-rw- 1 root root 18433 Jan 23 01:59 hw_ctree.xml
+hw_ctree_tmp.xml is not generated as expected, but original hw_ctree.xml is override. Its size is changed from 18504 to 18433.  It is now a gzip file. So
+WAP(Dopra Linux) # gzip -d hw_ctree.xml.gz
+WAP(Dopra Linux) # ls -lrt hw_ctree.xml
+-rw-rw-rw- 1 root root 133006 Jan 23 01:52 hw_ctree.xml
+Its size is changed to 133006, and is now a normal xml file.
+vi it, search useradmin, change UserLevel to 0, make sure it has identical keys and values as telecomadmin.
+gzip /tmp/hw_ctree.xml, run “ aescrypt2 0″ to encrypt it, move it to /mnt/jffs2/hw_ctree.xml, and reboot
+The above steps make useradmin has same privilege as telecomadmin.
+ref:
+http://www.chinadsl.net/forum.php?mod=viewthread&tid=98172&extra=&page=1
+修改多拨限制
+<X_HW_AccessLimit Mode=”GlobalLimit” TotalTerminalNumber=”4″/>
